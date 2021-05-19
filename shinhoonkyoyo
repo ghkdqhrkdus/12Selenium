@@ -6,3 +6,17 @@ driver=webdriver.Chrome('chromedriver.exe')
 driver.implicitly_wait(2)
 driver.get('http://www.mimacstudy.com/main/main.ds')
 driver.find_element_by_xpath('//*[@id="mainPopPI00001396Img"]/area[2]').click()
+word=input('검색어를 입력하세요').split()
+d=[]
+for i in word:
+    driver.find_element_by_name('srchTxt').send_keys(i)
+    driver.find_element_by_id('topSearchBtn').click()
+    a=int(driver.find_element_by_xpath('// *[ @ id = "summBook"] / a / em').text.strip('()'))
+    d.append(a)
+
+
+plt.rc('font',family='Malgun Gothic')
+x = np.arange(3)
+plt.bar(x,d)
+plt.xticks(x, word)
+plt.show()
