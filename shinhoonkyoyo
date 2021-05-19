@@ -1,0 +1,8 @@
+from selenium import webdriver
+import matplotlib.pyplot as plt
+import matplotlib
+import numpy as np
+driver=webdriver.Chrome('chromedriver.exe')
+driver.implicitly_wait(2)
+driver.get('http://www.mimacstudy.com/main/main.ds')
+driver.find_element_by_xpath('//*[@id="mainPopPI00001396Img"]/area[2]').click()
